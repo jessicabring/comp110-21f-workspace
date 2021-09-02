@@ -2,5 +2,6 @@
 
 __author__ = "730394024"
 
-
-# Begin your solution here...
+letter: str = input("What letter do you want to search for?: ")
+word: str = input("Enter a word: ")
+count: int = 0 
