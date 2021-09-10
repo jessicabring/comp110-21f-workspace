@@ -9,7 +9,7 @@ def duplicates(a: str) -> bool:
     """Returns a bool value determining whether the string input contains duplicate letters."""
     i: int = 0
     j: int = 1
-    
+
     while i < len(a):
         j = i + 1
         while j < len(a):
@@ -24,4 +24,4 @@ def duplicates(a: str) -> bool:
 
 
 output: bool = duplicates(str(input("Enter a word: ")))
-print(str(output))
+print("Found duplicate: " + str(output))
