@@ -2,7 +2,6 @@
 
 __author__ = "730394024"
 
-
 user_word: str
 
 
