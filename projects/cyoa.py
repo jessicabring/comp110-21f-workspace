@@ -1,4 +1,7 @@
 """This is a quiz game to try to figure out the users' sign."""
+
+__author__ = "730394024"
+
 from random import randint
 player: str = ""
 points: int
