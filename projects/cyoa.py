@@ -53,7 +53,7 @@ def main() -> None:
 
 
 def pretest() -> None:
-    """CUstom procedure, checks user's prior knowledge and assigns points."""
+    """Custom procedure, checks user's prior knowledge and assigns points."""
     global points
     knowledge: str = input(f"Hello, {player}! Do you have any prior knowledge about your {MAGIC} zodiac sign {MAGIC}? (Y/N) \n")
     if knowledge == "Y":
