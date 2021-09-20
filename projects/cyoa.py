@@ -21,13 +21,15 @@ HAPPY: str = "\U0001F601\U0001F60E\U0001F48B"
 
 
 def greet() -> None:
+    """Greets the player, initializes name variable."""
     global player
     print(f"{MAGIC} Welcome to the Zodiac Guesser {MAGIC}")
     print(ALL_SIGNS)
     player = str(input("What is your earthly name? "))
 
 
-def main() -> None:  
+def main() -> None: 
+    """Procedure that begins the game and holds the game loop.""" 
     global points
     points = 0
     i: int = 0
@@ -48,6 +50,7 @@ def main() -> None:
 
 
 def pretest() -> None:
+    """CUstom procedure, checks user's prior knowledge and assigns points."""
     global points
     knowledge: str = input(f"Hello, {player}! Do you have any prior knowledge about your {MAGIC} zodiac sign {MAGIC}? (Y/N) \n")
     if knowledge == "Y":
@@ -57,6 +60,7 @@ def pretest() -> None:
 
 
 def quiz(x: int, a: int) -> int:
+    """Gives questions to the user, parameter is retrieved from the game loop in the main() function, returns the updated points."""
     quiz_input: str
     if x == 0:
         quiz_input = input(f"{ALL_SIGNS} \n {player}, Are you: \n A. Introverted \n B. Extroverted \n C. Ambiverted \n D. I don't like people \n")
@@ -82,6 +86,7 @@ def quiz(x: int, a: int) -> int:
 
 
 def algorithm(x: str) -> int:
+    """Function that assigns points based on response, designed to assign the zodiac sign based on answers that have been given."""
     global points
     if x == "A":
         points = points + 1
@@ -95,6 +100,7 @@ def algorithm(x: str) -> int:
 
 
 def final_result() -> None:
+    """Procedure to get a zodiac sign based off how many points the user has accumulated. Then checks with user to see if guess was correct, if not it will keep guessing."""
     global points
     i: int = 0
     u: int = 0
@@ -127,6 +133,7 @@ def final_result() -> None:
 
 
 def sign_gen(x: int) -> str:
+    """Database assigning numbers to each sign, will return the sign that corresponds with the number of the randint that picks three main options."""
     if x == 1:
         return f"a Pisces {PISCES}!"
     if x == 2:
