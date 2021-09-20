@@ -32,40 +32,53 @@ def main() -> None:
     points = 0
     i: int = 0
     greet()
-    
+    pretest()
+
     while i < 5:
+        print(f"Points: {points}")
         game_loop: str = str(input("Do you wish to continue? (Y/N) \n"))
         if game_loop == "N":
-            print(f"Points: {points}")
             print(f"{MAGIC} GAME OVER {MAGIC}")
             exit()
         else:
-            points = quiz(i)
-        print(f"Points: {points}")
+            points = quiz(i, points)
         i = i + 1
     else: 
         final_result()
 
 
-def quiz(x: int) -> int:
+def pretest() -> None:
     global points
+    knowledge: str = input(f"Hello, {player}! Do you have any prior knowledge about your {MAGIC} zodiac sign {MAGIC}? (Y/N) \n")
+    if knowledge == "Y":
+        points = points + 1
+    if knowledge == "N":
+        points = points - 1
+
+
+def quiz(x: int, a: int) -> int:
     quiz_input: str
     if x == 0:
         quiz_input = input(f"{ALL_SIGNS} \n {player}, Are you: \n A. Introverted \n B. Extroverted \n C. Ambiverted \n D. I don't like people \n")
-        return algorithm(quiz_input)
+        a = algorithm(quiz_input)
+        return a
     if x == 1:
         quiz_input = input(f"{ALL_SIGNS} \n A friend is talking about you behind your back. Do you: \n A. Find them and talk about it \n B. Ignore it because you're better than them \n C. Put a hex on them \n D. I talk to no one \n")
-        return algorithm(quiz_input)
+        a = algorithm(quiz_input)
+        return a
     if x == 2:
         quiz_input = input(f"{ALL_SIGNS} \n Which word best describes you, {player}? \n A. Practical \n B. Awe-inspiring \n C. Odd \n D. Mysterious \n")
-        return algorithm(quiz_input)
+        a = algorithm(quiz_input)
+        return a
     if x == 3: 
         quiz_input = input(f"{ALL_SIGNS} \n How many times a day do you think about yourself? \n A. I'm too busy \n B. Constantly \n C. Thrice \n D. I'm not telling you {MEANIE} \n")
-        return algorithm(quiz_input)
+        a = algorithm(quiz_input)
+        return a
     if x == 4: 
         quiz_input = input(f"{ALL_SIGNS} \n What is your favorite color? \n A. Pink \n B. It changes every week \n C. You wouldn't know it \n D. Black \n")
-        return algorithm(quiz_input)
-    return points
+        a = algorithm(quiz_input)
+        return a
+    return a
 
 
 def algorithm(x: str) -> int:
@@ -85,16 +98,16 @@ def final_result() -> None:
     global points
     i: int = 0
     u: int = 0
-    if points <= 5:
+    if points <= 6:
         print(f"{MAGIC} {player}, You are: {sign_gen(randint(1,3))} {MAGIC}")
     else:
-        if points <= 10: 
+        if points <= 11: 
             print(f"{MAGIC} {player}, You are: {sign_gen(randint(4,6))} {MAGIC}")
         else:
-            if points <= 15:
+            if points <= 16:
                 print(f"{MAGIC} {player}, You are: {sign_gen(randint(7,9))} {MAGIC}")
             else: 
-                if points <= 20:
+                if points <= 21:
                     print(f"{MAGIC} {player}, You are: {sign_gen(randint(10,12))} {MAGIC}")
     while i < 1:
         feedback: str = input("Did I get it right? (Y/N) \n")
@@ -106,7 +119,7 @@ def final_result() -> None:
                     print(f"Maybe you are {sign_gen(u)}?")
             i = 0
             if try_again == "N":
-                print(f"You must be a Scorpio {MEANIE} GAME OVER!")
+                print(f"You must be a Scorpio {MEANIE} \n GAME OVER!")
                 i = i + 1
         if feedback == "Y":
             print(f"{HAPPY} YAY!! {HAPPY} \n {MAGIC} GAME OVER {MAGIC}")
