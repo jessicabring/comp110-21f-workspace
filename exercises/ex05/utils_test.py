@@ -1,11 +1,8 @@
 """Unit tests for list utility functions."""
 
-# TODO: Uncomment the below line when ready to write unit tests
-# from exercises.ex05.utils import only_evens, sub, concat
-
 __author__ = "730394024"
 
-from exercises.ex05.utils import only_evens, sub
+from exercises.ex05.utils import only_evens, sub, concat
 
 
 def test_only_evens_mixed() -> None:
@@ -72,3 +69,23 @@ def test_sub_start_is_greater() -> None:
     """Sub edge case, shoudl return empty list because start is > length."""
     xs: list[int] = [0, 1, 2, 3, 5]
     assert sub(xs, 7, 3) == []
+
+
+def test_concat_regular_case() -> None:
+    """Concat use case, average length."""
+    xs: list[int] = [1, 2, 3]
+    ys: list[int] = [4, 5, 6]
+    assert concat(xs, ys) == [1, 2, 3, 4, 5, 6]
+
+
+def test_concat_length_case() -> None:
+    """Concat use case, longer lists."""
+    xs: list[int] = [1, 2, 3, 4, 5, 6]
+    assert concat(xs, xs) == [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6]
+
+
+def test_concat_empty_list() -> None: 
+    """Concat edge case with an empty list, should return an empty list."""
+    xs: list[int] = []
+    ys: list[int] = [1, 2, 3]
+    assert concat(xs, ys) == []

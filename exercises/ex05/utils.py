@@ -38,6 +38,12 @@ def sub(x: list[int], start: int, end: int) -> list[int]:
 
 def concat(a: list[int], b: list[int]) -> list[int]:
     result: list[int] = list()
+    if len(a) == 0:
+        return result
+    else: 
+        if len(b) == 0:
+            return result
+
     for x in a:
         result.append(x)
     for y in b: 
