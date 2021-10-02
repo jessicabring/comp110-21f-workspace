@@ -84,9 +84,8 @@ def test_concat_length_case() -> None:
     assert concat(xs, xs) == [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6]
 
 
-def test_concat_empty_list() -> None: 
-    """Concat edge case with an empty list, should return an empty list."""
-
+def test_concat_empty_single() -> None: 
+    """Edge case: one empty list and one single int list."""
     xs: list[int] = []
-    ys: list[int] = [1, 2, 3]
-    assert concat(xs, ys) == []
+    ys: list[int] = [1]
+    assert concat(xs, ys) == [1]
