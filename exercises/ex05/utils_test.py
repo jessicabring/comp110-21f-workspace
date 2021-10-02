@@ -36,7 +36,7 @@ def test_sub_ideal_list() -> None:
 
 
 def test_sub_use_lengthy() -> None:
-    """Sub use case, longer list"""
+    """Sub use case, longer list."""
     xs: list[int] = [1, 2, 3, 4, 5, 6, 7]
     assert sub(xs, 2, 6) == [3, 4, 5, 6]
 
@@ -86,7 +86,7 @@ def test_concat_length_case() -> None:
 
 def test_concat_empty_list() -> None: 
     """Concat edge case with an empty list, should return an empty list."""
-    
+
     xs: list[int] = []
     ys: list[int] = [1, 2, 3]
     assert concat(xs, ys) == []
