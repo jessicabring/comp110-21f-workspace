@@ -1,16 +1,8 @@
 """Unit tests for dictionary functions."""
 
-# TODO: Uncomment the below line when ready to write unit tests
-
 from exercises.ex06.dictionaries import invert, favorite_color, count
 
 __author__ = "730394024"
-
-
-def test_invert_duplicate_keys() -> None:
-    """Edge case: tests for duplicate keys."""
-    input: dict[str, str] = {'kris': 'jordan', 'michael': 'jordan'}
-    assert invert(input) == KeyError('KeyError')
 
 
 def test_invert_long() -> None: 
@@ -25,6 +17,12 @@ def test_invert_normal() -> None:
     assert invert(input) == {'cat': 'apple', 'fish': 'banana', 'dog': 'peach'}
 
 
+def test_invert_duplicate_keys() -> None:
+    """Edge case: One value in dictionary."""
+    input: dict[str, str] = {'kris': 'jordan'}
+    assert invert(input) == {'jordan': 'kris'}
+
+
 def test_favorite_color_tie() -> None:
     """Edge case, when two colors are tied."""
     input: dict[str, str] = {"Jessica": "black", "Grace": "blue", "Cece": "red", "Rhiannon": "red", "Rachael": "blue"}
@@ -33,8 +31,8 @@ def test_favorite_color_tie() -> None:
 
 def test_favorite_color_short() -> None:
     """Use case, short dictionary input."""
-    input: dict[str, str] = {'Jessica': 'black', 'Michelle': 'black', 'Grace': 'red'}
-    assert favorite_color(input) == "black"
+    input: dict[str, str] = {"Marc": "yellow", "Ezri": "blue", "Kris": "blue"}
+    assert favorite_color(input) == "blue"
 
 
 def test_favorite_color_long() -> None:

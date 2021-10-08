@@ -34,12 +34,13 @@ def favorite_color(log: dict[str, str]) -> str:
                 counter += 1
             if counter > 2:    
                 is_duplicate = True
-        if counter == color_winner and is_duplicate is False:
+        if counter == color_winner and is_duplicate is True:
             result = first_value
+        
         if counter > color_winner:
             result = log[key]
             color_winner = counter
-        
+
         counter = 1
         is_duplicate = False
     
