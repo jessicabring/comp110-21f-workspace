@@ -52,15 +52,19 @@ def head(columns_data: dict[str, list[str]], i: int) -> dict[str, list[str]]:
     for row in columns_data:
         counter: int = 0
         first_values: list[str] = []
-        while counter < i:
-            first_values.append(columns_data[row][counter])
-            counter += 1
-        result[row] = first_values
         
+        if i >= len(columns_data[row]):
+            result[row] = columns_data[row]
+        else:
+            while counter < i:
+                first_values.append(columns_data[row][counter])
+                counter += 1
+            result[row] = first_values
+
     return result 
 
 
-def select(table: dict[str, list], subset: list[str]) -> dict[str, list[str]]:
+def select(table: dict[str, list[str]], subset: list[str]) -> dict[str, list[str]]:
     """Produces a new column based table with a specific subset of the columns."""
     result: dict[str, list[str]] = {}
     for column in subset:
@@ -82,7 +86,7 @@ def concat(table_1: dict[str, list[str]], table_2: dict[str, list[str]]) -> dict
 
 
 def count(values: list[str]) -> dict[str, int]:
-    """Records the frequency of the """
+    """Records the frequency of the values in a list."""
     result: dict[str, int] = {}
     for x in values:
         if x in result:
